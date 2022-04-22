@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Libre Baskerville', serif;
+}
+$darkColor:#494449;
+$backgroundColor:#828083;
+$fontColor:#0d1010;
+$greenIshColor:#8e9189;
+body{
+    background-color: $backgroundColor;
+}
+.Nav{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin:.5rem 1rem;
+    font-size: 1.5rem;
+    a{
+        text-decoration: none;
+        color: $fontColor;
+    }
+    .links{
+        display: none;
+        flex-direction: column;
+        background-color: $backgroundColor;
+        height: 100vh;
+        text-align: center;
+        margin: 5rem 0;
+        margin-right: 3rem;
+        a{
+            text-decoration: none;
+            color: $fontColor;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+    }
+}
+.Menu{
+    // height: 100vh;
+    .title,.filterMenu{
+        color: $fontColor;
+    }
+    .title{
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 3rem 0;
+    }
+    .filterMenu{
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        margin: 0 auto;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        .active{
+            border-bottom: 1px solid $darkColor;
+        }
+        input{
+            background-color: $backgroundColor;
+            border: none;
+            text-transform: capitalize;
+        }
+    }
+    .container{
+        .items{
+            .item{
+                display: flex;
+                margin: 1rem auto;
+                color: $fontColor;
+                width: 90%;
+                justify-content: space-around;
+                flex-direction: column;
+                .titleAndPrice{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    color: $fontColor;
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    .name{
+                        max-width: 75%;
+                        text-transform: capitalize;
+                    }
+                }
+                .description{
+                    color: $fontColor;
+                    font-size: 1.125rem;
+                    max-width: 85%;
+                    margin: .5rem 0;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+
+}
+.Location{
+    .container{
+        text-align: center;
+        font-size: 1.25rem;
+        color: $fontColor;
+        margin: 5rem 0;
+        .address{
+            margin: 1.5rem;
+        }
+        .hours-open{
+            .phone{
+                margin: 1rem 0;
+            }
+            .hours{
+                font-size: 1.125rem;
+            }
+        }
+    }
+    .map{
+        width: 90%;
+        margin: 3rem auto;
+        iframe{
+            width: 100%;
+        }
+    }
+}
+.Home{
+    text-align: center;
+    color: $fontColor;
+    height: 100vh;
+    margin: 50% 0;
+    h1{
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    h4{
+        font-size:1.125rem;
+    }
+}
