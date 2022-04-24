@@ -6,7 +6,8 @@ const Menu = () => {
     console.log(menuList)
     const [category,setCategory]= useState('pupusas');
     const filterMenu = (event)=>{
-        setCategory(event.target.value)
+        console.log(event.target.getAttribute('data-value'))
+        setCategory(event.target.getAttribute('data-value'))
         const filterBtns = document.querySelectorAll('.filterBtn')
         filterBtns.forEach(btn=>{
             btn.classList.remove('active')
@@ -24,9 +25,9 @@ const Menu = () => {
         </Helmet>
             <div className="title">Menu</div>
             <div className="filterMenu">
-                <input type='button' value='pupusas' className='filterBtn active' onClick={filterMenu}/>
-                <input type='button' value='breakfast' className='filterBtn' onClick={filterMenu}/>
-                <input type='button' value='lunch' className='filterBtn' onClick={filterMenu}/>
+                <div data-value='pupusas' className='filterBtn active' onClick={filterMenu}>pupusas</div>
+                <div data-value='breakfast' className='filterBtn' onClick={filterMenu}>breakfast</div>
+                <div data-value='lunch' className='filterBtn' onClick={filterMenu}>lunch</div>
                 
             </div>
             <div className="container">
