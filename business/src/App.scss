@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin:.5rem 1rem;
+    margin:1rem 1.5rem;
     font-size: 1.5rem;
     a{
         text-decoration: none;
@@ -59,7 +59,7 @@ body{
         color: $fontColor;
         text-transform: capitalize;
         .active{
-            border-bottom: 1px solid $stroke;
+            border-bottom: 3px solid $stroke;
         }
         
     }
@@ -99,7 +99,7 @@ body{
 }
 .Location{
     position: relative;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction:column;
     justify-content: space-around;
@@ -134,7 +134,7 @@ body{
 }
 .Home{
     height: 100vh;
-    .container{
+    .comingSoonContainer{
         display: flex;
         flex-direction: column;
         height: 80%;
@@ -152,6 +152,8 @@ body{
         }
         h4{
             height: 64px;
+            max-width: 70%;
+            margin: 0 auto;
             font-weight: 400;
             font-size: .875rem;
             line-height: 17px;
@@ -159,6 +161,25 @@ body{
             align-items: center;
             text-align: center;
             color: #94A1B2; 
+        }
+        a{
+            text-align: center;
+            text-decoration: none;
+            input{
+                -webkit-appearance: button;
+                -moz-appearance: button;
+                background:#7f5af0 ;
+                color: $HeadLineColor;
+                text-transform: capitalize;
+                padding: 1.2rem 2rem;
+                margin: 1rem 0;
+                font-size: 1rem;
+                border: none;
+                -webkit-border-radius:5px;
+                -moz-border-radius:5px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
         }
     }
     
