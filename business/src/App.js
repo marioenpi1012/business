@@ -8,7 +8,7 @@ import Place from './components/Place'
 function App() {
   return (
     <>
-      <Router basename='/'>
+      <Router basename='/business/'>
           <Nav/>
         <Routes>
           <Route exact path='/' element={<Home/>} />
