@@ -12,12 +12,14 @@ $stroke:#010101;
 body{
     background-color: $backgroundColor;
 }
+// Phone Ready
 .Nav{
     display: flex;
     justify-content: space-between;
     position: relative;
     margin:1rem 1.5rem;
     font-size: 1.5rem;
+    align-items: center;
     a{
         text-decoration: none;
         color: $HeadLineColor;
@@ -35,6 +37,7 @@ body{
             color: $HeadLineColor;
             margin: 2rem 0;
             font-size: 1.5rem;
+            cursor: pointer;
         }
     }
     .mobileMenu{
@@ -58,8 +61,9 @@ body{
         margin-bottom: 2rem;
         color: $fontColor;
         text-transform: capitalize;
+        cursor: pointer;
         .active{
-            border-bottom: 3px solid $stroke;
+            border-bottom: 3px solid #7f5af0;
         }
         
     }
@@ -183,4 +187,44 @@ body{
         }
     }
     
+}
+
+// ipads & tablets 
+@media screen  and  (min-width:768px) {
+    .Nav{
+        .links{
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            height: unset;
+            justify-content: space-around;
+            width: 30%;
+        }
+        .mobileMenu{
+            display: none;
+        }
+    }
+    .Menu {
+        .filterMenu{
+            width: 35%;
+        }
+        .container .items .item{
+            margin: 0 2.5rem;
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .Nav, .Menu, .Location .map{
+        width: 100%;
+        max-width: 1024px;
+        margin: auto;
+    }
+    .Menu .container .items .item{
+        margin: 0;
+        width: 100%;
+        .description{
+            max-width: 40%;
+        }
+    }
 }
