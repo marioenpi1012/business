@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
 import { FaBars,FaTimes } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 const Nav = () => {
     const [open,setOpen] = useState(false)
     return (
         <div className='Nav'>
-            <NavLink to='/'>Name</NavLink>
+            <Link href='/'>El Panamericano</Link>
             <div className="links" style={open ? {display:'flex'} :{}} >
-                <NavLink to='/menu' onClick={()=>setOpen(!open)} >Menu</NavLink>
-                <NavLink to='/location' onClick={()=>setOpen(!open)}>Location</NavLink>
+                <Link href='/menu' onClick={()=>setOpen(!open)} >Menu</Link>
+                <Link href='/location' onClick={()=>setOpen(!open)}>Location</Link>
             </div>
             <div className="mobileMenu" onClick={()=>setOpen(!open)}>
                 {open 
