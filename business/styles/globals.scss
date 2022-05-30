@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import "./Color.module.scss";
+*{
+    box-sizing: border-box;
+}
+html,
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Libre Baskerville', serif;
+    background-color: $backgroundColor;
+}
+
+
+
+
+
+
+
+// ipads & tablets
+@media screen  and  (min-width:768px) {
+    .Home .comingSoonContainer input{
+        max-width: 30%;
+    }
+    .Nav{
+        .links{
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            height: unset;
+            justify-content: space-around;
+            width: 30%;
+        }
+        .mobileMenu{
+            display: none;
+        }
+    }
+    .Menu {
+        .filterMenu{
+            width: 35%;
+        }
+        .container .items .item{
+            margin: 0 2.5rem;
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+
+    .Nav, .Menu, .Location .map{
+        width: 100%;
+        max-width: 1024px;
+        margin: auto;
+    }
+    .Menu .container .items .item{
+        margin: 0;
+        width: 100%;
+        .description{
+            max-width: 40%;
+        }
+    }
+}

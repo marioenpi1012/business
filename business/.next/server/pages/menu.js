@@ -1,316 +1,90 @@
-"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 934;
-exports.ids = [934];
+exports.id = "pages/menu";
+exports.ids = ["pages/menu"];
 exports.modules = {
 
-/***/ 6360:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./styles/Menu.module.scss":
+/*!*********************************!*\
+  !*** ./styles/Menu.module.scss ***!
+  \*********************************/
+/***/ ((module) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ menu),
-  "getServerSideProps": () => (/* binding */ getServerSideProps)
-});
-
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(997);
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(6689);
-// EXTERNAL MODULE: ./src/components/Layout.js + 1 modules
-var Layout = __webpack_require__(9049);
-// EXTERNAL MODULE: external "axios"
-var external_axios_ = __webpack_require__(2167);
-var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
-;// CONCATENATED MODULE: ./src/components/MenuItem.jsx
-
-function MenuItem({ product , subcat  }) {
-    console.log(product);
-    const { _id , title , desc , price , subcategory  } = product;
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-        children: [
-            subcat && subcat,
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "item",
-                children: [
-                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "titleAndPrice",
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: "name",
-                                children: title
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "price",
-                                children: [
-                                    "$",
-                                    price
-                                ]
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "description",
-                        children: desc && desc
-                    })
-                ]
-            }, _id)
-        ]
-    });
-};
-
-;// CONCATENATED MODULE: ./src/components/Menu.jsx
-
-
-
-
-function Menu({ products  }) {
-    console.log(products);
-    const { 0: category , 1: setCategory  } = (0,external_react_.useState)("pupusas");
-    const filterMenu = (event)=>{
-        console.log(event.target.getAttribute("data-value"));
-        setCategory(event.target.getAttribute("data-value"));
-        const filterBtns = document.querySelectorAll(".filterBtn");
-        filterBtns.forEach((btn)=>{
-            btn.classList.remove("active");
-        });
-        event.target.classList.add("active");
-    };
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: "Menu",
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "title",
-                children: "Menu"
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "filterMenu",
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        "data-value": "pupusas",
-                        className: "filterBtn active",
-                        onClick: filterMenu,
-                        children: "pupusas"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        "data-value": "breakfast",
-                        className: "filterBtn",
-                        onClick: filterMenu,
-                        children: "breakfast"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        "data-value": "lunch",
-                        className: "filterBtn",
-                        onClick: filterMenu,
-                        children: "lunch"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        "data-value": "mexican food",
-                        className: "filterBtn",
-                        onClick: filterMenu,
-                        children: "Tacos/Gorditas"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "container",
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "title",
-                        children: category === "breakfast" && "Breakfast Tacos" || category === "mexican food" && "tacos"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "items",
-                        children: products.map((product)=>category === product.category && product.subcategory === "tacos" && /*#__PURE__*/ jsx_runtime_.jsx(MenuItem, {
-                                product: product
-                            })
-                        )
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "title",
-                        children: category === "breakfast" && "Breakfast " || category === "mexican food" && "Gorditas"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "items",
-                        children: products.map((product)=>category === product.category && product.subcategory !== "tacos" && /*#__PURE__*/ jsx_runtime_.jsx(MenuItem, {
-                                product: product
-                            })
-                        )
-                    })
-                ]
-            })
-        ]
-    });
-};
-
-;// CONCATENATED MODULE: ./src/pages/menu.js
-
-
-
-
-
-
-function menu({ data  }) {
-    console.log("menu", data);
-    return /*#__PURE__*/ jsx_runtime_.jsx(Layout/* default */.Z, {
-        children: /*#__PURE__*/ jsx_runtime_.jsx(Menu, {
-            products: data
-        })
-    });
-};
-const getServerSideProps = async ()=>{
-    const res = await external_axios_default().get("http://localhost:3000/api/products");
-    return {
-        props: {
-            data: res.data
-        }
-    };
-};
-
+eval("// Exports\nmodule.exports = {\n\t\"Menu\": \"Menu_Menu__Mbx3J\",\n\t\"title\": \"Menu_title__iFQ1I\",\n\t\"filterMenu\": \"Menu_filterMenu__qag_7\",\n\t\"active\": \"Menu_active__eE4qo\",\n\t\"container\": \"Menu_container__6cT12\",\n\t\"items\": \"Menu_items__KYQ2Y\",\n\t\"item\": \"Menu_item__6_x9z\",\n\t\"titleAndPrice\": \"Menu_titleAndPrice__S_cXE\",\n\t\"name\": \"Menu_name__712Af\",\n\t\"description\": \"Menu_description__opeik\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdHlsZXMvTWVudS5tb2R1bGUuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL2J1c2luZXNzLy4vc3R5bGVzL01lbnUubW9kdWxlLnNjc3M/Yzc4YyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJNZW51XCI6IFwiTWVudV9NZW51X19NYngzSlwiLFxuXHRcInRpdGxlXCI6IFwiTWVudV90aXRsZV9faUZRMUlcIixcblx0XCJmaWx0ZXJNZW51XCI6IFwiTWVudV9maWx0ZXJNZW51X19xYWdfN1wiLFxuXHRcImFjdGl2ZVwiOiBcIk1lbnVfYWN0aXZlX19lRTRxb1wiLFxuXHRcImNvbnRhaW5lclwiOiBcIk1lbnVfY29udGFpbmVyX182Y1QxMlwiLFxuXHRcIml0ZW1zXCI6IFwiTWVudV9pdGVtc19fS1lRMllcIixcblx0XCJpdGVtXCI6IFwiTWVudV9pdGVtX182X3g5elwiLFxuXHRcInRpdGxlQW5kUHJpY2VcIjogXCJNZW51X3RpdGxlQW5kUHJpY2VfX1NfY1hFXCIsXG5cdFwibmFtZVwiOiBcIk1lbnVfbmFtZV9fNzEyQWZcIixcblx0XCJkZXNjcmlwdGlvblwiOiBcIk1lbnVfZGVzY3JpcHRpb25fX29wZWlrXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./styles/Menu.module.scss\n");
 
 /***/ }),
 
-/***/ 2167:
+/***/ "./components/Menu.jsx":
+/*!*****************************!*\
+  !*** ./components/Menu.jsx ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Menu)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _components_MenuItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/MenuItem */ \"./components/MenuItem.jsx\");\n/* harmony import */ var _styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/Menu.module.scss */ \"./styles/Menu.module.scss\");\n/* harmony import */ var _styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\nfunction Menu({ products  }) {\n    console.log(products);\n    const { 0: category , 1: setCategory  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"pupusas\");\n    const filterMenu = (event)=>{\n        setCategory(event.target.getAttribute(\"data-value\"));\n        const filterBtns = document.querySelectorAll(\"[data-value]\");\n        filterBtns.forEach((btn)=>{\n            btn.classList.remove((_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().active));\n            console.log(\"working\");\n        });\n        event.target.classList.add((_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().active));\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().Menu),\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().title),\n                children: \"Menu\"\n            }, void 0, false, {\n                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                lineNumber: 21,\n                columnNumber: 17\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().filterMenu),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        \"data-value\": \"pupusas\",\n                        className: ((_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().filterBtn), (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().active)),\n                        onClick: filterMenu,\n                        children: \"pupusas\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 23,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        \"data-value\": \"breakfast\",\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().filterBtn),\n                        onClick: filterMenu,\n                        children: \"breakfast\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 24,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        \"data-value\": \"lunch\",\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().filterBtn),\n                        onClick: filterMenu,\n                        children: \"lunch\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 25,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        \"data-value\": \"mexican food\",\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().filterBtn),\n                        onClick: filterMenu,\n                        children: \"Tacos/Gorditas\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 26,\n                        columnNumber: 21\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                lineNumber: 22,\n                columnNumber: 17\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().container),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().title),\n                        children: category === \"breakfast\" && \"Breakfast Tacos\" || category === \"mexican food\" && \"tacos\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 30,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().items),\n                        children: products.map((product)=>category === product.category && product.subcategory === \"tacos\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_MenuItem__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n                                product: product\n                            }, product._id, false, {\n                                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                                lineNumber: 37,\n                                columnNumber: 36\n                            }, this)\n                        )\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 33,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().title),\n                        children: category === \"breakfast\" && \"Breakfast \" || category === \"mexican food\" && \"Gorditas\"\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 40,\n                        columnNumber: 21\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_4___default().items),\n                        children: products.map((product)=>category === product.category && product.subcategory !== \"tacos\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_MenuItem__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n                                product: product\n                            }, product._id, false, {\n                                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                                lineNumber: 47,\n                                columnNumber: 33\n                            }, this)\n                        )\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                        lineNumber: 43,\n                        columnNumber: 21\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n                lineNumber: 29,\n                columnNumber: 17\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/Menu.jsx\",\n        lineNumber: 20,\n        columnNumber: 13\n    }, this);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL01lbnUuanN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUFpQztBQUNQO0FBQ21CO0FBQ0M7QUFDL0IsU0FBU0ksSUFBSSxDQUFDLEVBQUNDLFFBQVEsR0FBQyxFQUFFO0lBQ3JDQyxPQUFPLENBQUNDLEdBQUcsQ0FBQ0YsUUFBUSxDQUFDO0lBQ3JCLE1BQU0sRUFOVixHQU1XRyxRQUFRLEdBTm5CLEdBTW9CQyxXQUFXLE1BQUdULCtDQUFRLENBQUMsU0FBUyxDQUFDO0lBQ2pELE1BQU1VLFVBQVUsR0FBRyxDQUFDQyxLQUFLLEdBQUc7UUFFeEJGLFdBQVcsQ0FBQ0UsS0FBSyxDQUFDQyxNQUFNLENBQUNDLFlBQVksQ0FBQyxZQUFZLENBQUMsQ0FBQztRQUNwRCxNQUFNQyxVQUFVLEdBQUdDLFFBQVEsQ0FBQ0MsZ0JBQWdCLENBQUMsY0FBYyxDQUFDO1FBQzVERixVQUFVLENBQUNHLE9BQU8sQ0FBQ0MsQ0FBQUEsR0FBRyxHQUFFO1lBQ3BCQSxHQUFHLENBQUNDLFNBQVMsQ0FBQ0MsTUFBTSxDQUFDakIsd0VBQVksQ0FBQztZQUNsQ0csT0FBTyxDQUFDQyxHQUFHLENBQUMsU0FBUyxDQUFDO1NBQ3pCLENBQUM7UUFDRkksS0FBSyxDQUFDQyxNQUFNLENBQUNPLFNBQVMsQ0FBQ0csR0FBRyxDQUFDbkIsd0VBQVksQ0FBQztLQUUzQztJQUNELHFCQUNRLDhEQUFDb0IsS0FBRztRQUFDQyxTQUFTLEVBQUVyQixzRUFBVTs7MEJBQ3RCLDhEQUFDb0IsS0FBRztnQkFBQ0MsU0FBUyxFQUFFckIsdUVBQVc7MEJBQUUsTUFBSTs7Ozs7b0JBQU07MEJBQ3ZDLDhEQUFDb0IsS0FBRztnQkFBQ0MsU0FBUyxFQUFFckIsNEVBQWdCOztrQ0FDNUIsOERBQUNvQixLQUFHO3dCQUFDRyxZQUFVLEVBQUMsU0FBUzt3QkFBQ0YsU0FBUyxFQUFFckIsQ0FBQUEsMkVBQWUsRUFBRUEsd0VBQVk7d0JBQUV5QixPQUFPLEVBQUVsQixVQUFVO2tDQUFFLFNBQU87Ozs7OzRCQUFNO2tDQUN0Ryw4REFBQ2EsS0FBRzt3QkFBQ0csWUFBVSxFQUFDLFdBQVc7d0JBQUNGLFNBQVMsRUFBRXJCLDJFQUFlO3dCQUFFeUIsT0FBTyxFQUFFbEIsVUFBVTtrQ0FBRSxXQUFTOzs7Ozs0QkFBTTtrQ0FDNUYsOERBQUNhLEtBQUc7d0JBQUNHLFlBQVUsRUFBQyxPQUFPO3dCQUFDRixTQUFTLEVBQUVyQiwyRUFBZTt3QkFBRXlCLE9BQU8sRUFBRWxCLFVBQVU7a0NBQUUsT0FBSzs7Ozs7NEJBQU07a0NBQ3BGLDhEQUFDYSxLQUFHO3dCQUFDRyxZQUFVLEVBQUMsY0FBYzt3QkFBQ0YsU0FBUyxFQUFFckIsMkVBQWU7d0JBQUV5QixPQUFPLEVBQUVsQixVQUFVO2tDQUFFLGdCQUFjOzs7Ozs0QkFBTTs7Ozs7O29CQUVsRzswQkFDTiw4REFBQ2EsS0FBRztnQkFBQ0MsU0FBUyxFQUFFckIsMkVBQWU7O2tDQUMzQiw4REFBQ29CLEtBQUc7d0JBQUNDLFNBQVMsRUFBRXJCLHVFQUFXO2tDQUN0QkssUUFBUSxLQUFLLFdBQVcsSUFBSSxpQkFBaUIsSUFBSUEsUUFBUSxLQUFLLGNBQWMsSUFBSSxPQUFPOzs7Ozs0QkFDdEY7a0NBQ04sOERBQUNlLEtBQUc7d0JBQUNDLFNBQVMsRUFBRXJCLHVFQUFXO2tDQUMxQkUsUUFBUSxDQUFDMEIsR0FBRyxDQUFDLENBQUNDLE9BQU8sR0FDbEJ4QixRQUFRLEtBQUt3QixPQUFPLENBQUN4QixRQUFRLElBQ3pCd0IsT0FBTyxDQUFDQyxXQUFXLEtBQUssT0FBTyxrQkFDeEIsOERBQUMvQiw0REFBUTtnQ0FBbUI4QixPQUFPLEVBQUVBLE9BQU87K0JBQTdCQSxPQUFPLENBQUNFLEdBQUc7Ozs7b0NBQXVCO3dCQUMvRCxDQUFDOzs7Ozs0QkFDSTtrQ0FDTiw4REFBQ1gsS0FBRzt3QkFBQ0MsU0FBUyxFQUFFckIsdUVBQVc7a0NBQzFCSyxRQUFRLEtBQUssV0FBVyxJQUFJLFlBQVksSUFBSUEsUUFBUSxLQUFLLGNBQWMsSUFBSSxVQUFVOzs7Ozs0QkFDaEY7a0NBQ04sOERBQUNlLEtBQUc7d0JBQUNDLFNBQVMsRUFBRXJCLHVFQUFXO2tDQUVuQkUsUUFBUSxDQUFDMEIsR0FBRyxDQUFDLENBQUNDLE9BQU8sR0FDakJ4QixRQUFRLEtBQUt3QixPQUFPLENBQUN4QixRQUFRLElBQUl3QixPQUFPLENBQUNDLFdBQVcsS0FBSyxPQUFPLGtCQUNoRSw4REFBQy9CLDREQUFRO2dDQUFtQjhCLE9BQU8sRUFBRUEsT0FBTzsrQkFBN0JBLE9BQU8sQ0FBQ0UsR0FBRzs7OztvQ0FBc0I7d0JBQ25ELENBQUM7Ozs7OzRCQUVKOzs7Ozs7b0JBQ0o7Ozs7OztZQUNKLENBQ2I7Q0FDSiIsInNvdXJjZXMiOlsid2VicGFjazovL2J1c2luZXNzLy4vY29tcG9uZW50cy9NZW51LmpzeD9iODY5Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgYXhpb3MgZnJvbSBcImF4aW9zXCI7XG5pbXBvcnQgTWVudUl0ZW0gZnJvbSAnLi4vY29tcG9uZW50cy9NZW51SXRlbSdcbmltcG9ydCBTdHlsZSBmcm9tICcuLi9zdHlsZXMvTWVudS5tb2R1bGUuc2NzcydcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE1lbnUoe3Byb2R1Y3RzfSkge1xuICAgIGNvbnNvbGUubG9nKHByb2R1Y3RzKVxuICAgIGNvbnN0IFtjYXRlZ29yeSxzZXRDYXRlZ29yeV09IHVzZVN0YXRlKCdwdXB1c2FzJyk7XG4gICAgY29uc3QgZmlsdGVyTWVudSA9IChldmVudCk9PntcblxuICAgICAgICBzZXRDYXRlZ29yeShldmVudC50YXJnZXQuZ2V0QXR0cmlidXRlKCdkYXRhLXZhbHVlJykpXG4gICAgICAgIGNvbnN0IGZpbHRlckJ0bnMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdbZGF0YS12YWx1ZV0nKVxuICAgICAgICBmaWx0ZXJCdG5zLmZvckVhY2goYnRuPT57XG4gICAgICAgICAgICBidG4uY2xhc3NMaXN0LnJlbW92ZShTdHlsZS5hY3RpdmUpXG4gICAgICAgICAgICBjb25zb2xlLmxvZygnd29ya2luZycpXG4gICAgICAgIH0pXG4gICAgICAgIGV2ZW50LnRhcmdldC5jbGFzc0xpc3QuYWRkKFN0eWxlLmFjdGl2ZSlcbiAgICAgICAgXG4gICAgfVxuICAgIHJldHVybiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17U3R5bGUuTWVudX0+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e1N0eWxlLnRpdGxlfT5NZW51PC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e1N0eWxlLmZpbHRlck1lbnV9PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGRhdGEtdmFsdWU9J3B1cHVzYXMnIGNsYXNzTmFtZT17U3R5bGUuZmlsdGVyQnRuICxTdHlsZS5hY3RpdmV9IG9uQ2xpY2s9e2ZpbHRlck1lbnV9PnB1cHVzYXM8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBkYXRhLXZhbHVlPSdicmVha2Zhc3QnIGNsYXNzTmFtZT17U3R5bGUuZmlsdGVyQnRufSBvbkNsaWNrPXtmaWx0ZXJNZW51fT5icmVha2Zhc3Q8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBkYXRhLXZhbHVlPSdsdW5jaCcgY2xhc3NOYW1lPXtTdHlsZS5maWx0ZXJCdG59IG9uQ2xpY2s9e2ZpbHRlck1lbnV9Pmx1bmNoPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgZGF0YS12YWx1ZT0nbWV4aWNhbiBmb29kJyBjbGFzc05hbWU9e1N0eWxlLmZpbHRlckJ0bn0gb25DbGljaz17ZmlsdGVyTWVudX0+VGFjb3MvR29yZGl0YXM8L2Rpdj5cblxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtTdHlsZS5jb250YWluZXJ9PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17U3R5bGUudGl0bGV9PlxuICAgICAgICAgICAgICAgICAgICAgICAge2NhdGVnb3J5ID09PSAnYnJlYWtmYXN0JyAmJiAnQnJlYWtmYXN0IFRhY29zJyB8fCBjYXRlZ29yeSA9PT0gJ21leGljYW4gZm9vZCcgJiYgXCJ0YWNvc1wifVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e1N0eWxlLml0ZW1zfT5cbiAgICAgICAgICAgICAgICAgICAge3Byb2R1Y3RzLm1hcCgocHJvZHVjdCk9PihcbiAgICAgICAgICAgICAgICAgICAgICAgIGNhdGVnb3J5ID09PSBwcm9kdWN0LmNhdGVnb3J5ICYmXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJvZHVjdC5zdWJjYXRlZ29yeSA9PT0gJ3RhY29zJyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJiYgPE1lbnVJdGVtIGtleT17cHJvZHVjdC5faWR9IHByb2R1Y3Q9e3Byb2R1Y3R9ICAvPlxuICAgICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtTdHlsZS50aXRsZX0+XG4gICAgICAgICAgICAgICAgICAgIHtjYXRlZ29yeSA9PT0gJ2JyZWFrZmFzdCcgJiYgJ0JyZWFrZmFzdCAnIHx8IGNhdGVnb3J5ID09PSAnbWV4aWNhbiBmb29kJyAmJiBcIkdvcmRpdGFzXCJ9XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17U3R5bGUuaXRlbXN9PlxuICAgICAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByb2R1Y3RzLm1hcCgocHJvZHVjdCk9PihcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcnkgPT09IHByb2R1Y3QuY2F0ZWdvcnkgJiYgcHJvZHVjdC5zdWJjYXRlZ29yeSAhPT0gJ3RhY29zJyAmJlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0ga2V5PXtwcm9kdWN0Ll9pZH0gcHJvZHVjdD17cHJvZHVjdH0gLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICApKVxuICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgIClcbn1cblxuXG4iXSwibmFtZXMiOlsidXNlU3RhdGUiLCJheGlvcyIsIk1lbnVJdGVtIiwiU3R5bGUiLCJNZW51IiwicHJvZHVjdHMiLCJjb25zb2xlIiwibG9nIiwiY2F0ZWdvcnkiLCJzZXRDYXRlZ29yeSIsImZpbHRlck1lbnUiLCJldmVudCIsInRhcmdldCIsImdldEF0dHJpYnV0ZSIsImZpbHRlckJ0bnMiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3JBbGwiLCJmb3JFYWNoIiwiYnRuIiwiY2xhc3NMaXN0IiwicmVtb3ZlIiwiYWN0aXZlIiwiYWRkIiwiZGl2IiwiY2xhc3NOYW1lIiwidGl0bGUiLCJkYXRhLXZhbHVlIiwiZmlsdGVyQnRuIiwib25DbGljayIsImNvbnRhaW5lciIsIml0ZW1zIiwibWFwIiwicHJvZHVjdCIsInN1YmNhdGVnb3J5IiwiX2lkIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./components/Menu.jsx\n");
+
+/***/ }),
+
+/***/ "./components/MenuItem.jsx":
+/*!*********************************!*\
+  !*** ./components/MenuItem.jsx ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ MenuItem)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/Menu.module.scss */ \"./styles/Menu.module.scss\");\n/* harmony import */ var _styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction MenuItem({ product , subcat  }) {\n    const { _id , title , desc , price , subcategory  } = product;\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            subcat && subcat,\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default().item),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default().titleAndPrice),\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default().name),\n                                children: title\n                            }, void 0, false, {\n                                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/MenuItem.jsx\",\n                                lineNumber: 10,\n                                columnNumber: 21\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default().price),\n                                children: [\n                                    \"$\",\n                                    price\n                                ]\n                            }, void 0, true, {\n                                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/MenuItem.jsx\",\n                                lineNumber: 11,\n                                columnNumber: 21\n                            }, this)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/MenuItem.jsx\",\n                        lineNumber: 9,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: (_styles_Menu_module_scss__WEBPACK_IMPORTED_MODULE_1___default().description),\n                        children: desc && desc\n                    }, void 0, false, {\n                        fileName: \"/Users/mariopineda/Desktop/business/business/business/components/MenuItem.jsx\",\n                        lineNumber: 13,\n                        columnNumber: 17\n                    }, this)\n                ]\n            }, _id, true, {\n                fileName: \"/Users/mariopineda/Desktop/business/business/business/components/MenuItem.jsx\",\n                lineNumber: 8,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL01lbnVJdGVtLmpzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBQThDO0FBRS9CLFNBQVNDLFFBQVEsQ0FBQyxFQUFDQyxPQUFPLEdBQUVDLE1BQU0sR0FBQyxFQUFFO0lBQ2hELE1BQU0sRUFBQ0MsR0FBRyxHQUFFQyxLQUFLLEdBQUVDLElBQUksR0FBRUMsS0FBSyxHQUFFQyxXQUFXLEdBQUMsR0FBSU4sT0FBTztJQUN2RCxxQkFDSTs7WUFDS0MsTUFBTSxJQUFJQSxNQUFNOzBCQUNqQiw4REFBQ00sS0FBRztnQkFBV0MsU0FBUyxFQUFFVixzRUFBVTs7a0NBQ2hDLDhEQUFDUyxLQUFHO3dCQUFDQyxTQUFTLEVBQUVWLCtFQUFtQjs7MENBQy9CLDhEQUFDUyxLQUFHO2dDQUFDQyxTQUFTLEVBQUVWLHNFQUFVOzBDQUFHSyxLQUFLOzs7OztvQ0FBTzswQ0FDekMsOERBQUNJLEtBQUc7Z0NBQUNDLFNBQVMsRUFBRVYsdUVBQVc7O29DQUFFLEdBQUM7b0NBQUNPLEtBQUs7Ozs7OztvQ0FBTzs7Ozs7OzRCQUN6QztrQ0FDTiw4REFBQ0UsS0FBRzt3QkFBQ0MsU0FBUyxFQUFFViw2RUFBaUI7a0NBQzVCTSxJQUFJLElBQUlBLElBQUk7Ozs7OzRCQUNYOztlQVBBRixHQUFHOzs7O29CQVFQOztvQkFDUCxDQUNOO0NBQ0oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9idXNpbmVzcy8uL2NvbXBvbmVudHMvTWVudUl0ZW0uanN4PzdiZWMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFN0eWxlIGZyb20gJy4uL3N0eWxlcy9NZW51Lm1vZHVsZS5zY3NzJ1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNZW51SXRlbSh7cHJvZHVjdCwgc3ViY2F0fSkge1xuICAgIGNvbnN0IHtfaWQsIHRpdGxlLCBkZXNjLCBwcmljZSwgc3ViY2F0ZWdvcnl9ICA9IHByb2R1Y3RcbiAgICByZXR1cm4gKFxuICAgICAgICA8PiAgXG4gICAgICAgICAgICB7c3ViY2F0ICYmIHN1YmNhdH1cbiAgICAgICAgICAgIDxkaXYga2V5PXtfaWR9IGNsYXNzTmFtZT17U3R5bGUuaXRlbX0+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e1N0eWxlLnRpdGxlQW5kUHJpY2V9PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17U3R5bGUubmFtZX0+e3RpdGxlfTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17U3R5bGUucHJpY2V9PiR7cHJpY2V9PC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e1N0eWxlLmRlc2NyaXB0aW9ufT5cbiAgICAgICAgICAgICAgICAgICAge2Rlc2MgJiYgZGVzY31cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8Lz5cbiAgICApXG59XG5cblxuIl0sIm5hbWVzIjpbIlN0eWxlIiwiTWVudUl0ZW0iLCJwcm9kdWN0Iiwic3ViY2F0IiwiX2lkIiwidGl0bGUiLCJkZXNjIiwicHJpY2UiLCJzdWJjYXRlZ29yeSIsImRpdiIsImNsYXNzTmFtZSIsIml0ZW0iLCJ0aXRsZUFuZFByaWNlIiwibmFtZSIsImRlc2NyaXB0aW9uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./components/MenuItem.jsx\n");
+
+/***/ }),
+
+/***/ "./pages/menu.js":
+/*!***********************!*\
+  !*** ./pages/menu.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ menu),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _components_Menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Menu */ \"./components/Menu.jsx\");\n\n\n\n\nfunction menu({ data  }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_Menu__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n        products: data\n    }, void 0, false, {\n        fileName: \"/Users/mariopineda/Desktop/business/business/business/pages/menu.js\",\n        lineNumber: 7,\n        columnNumber: 13\n    }, this);\n};\nconst getServerSideProps = async ()=>{\n    const res = await axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"https://vercel.com/marioenpi1012/business\");\n    return {\n        props: {\n            data: res.data\n        }\n    };\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9tZW51LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBO0FBQXlCO0FBRUM7QUFDWTtBQUN2QixTQUFTRyxJQUFJLENBQUMsRUFBQ0MsSUFBSSxHQUFDLEVBQUM7SUFDaEMscUJBQ1EsOERBQUNGLHdEQUFJO1FBQUNHLFFBQVEsRUFBRUQsSUFBSTs7Ozs7WUFBSSxDQUUvQjtDQUNKO0FBQ00sTUFBTUUsa0JBQWtCLEdBQUcsVUFBVztJQUN6QyxNQUFNQyxHQUFHLEdBQUcsTUFBTU4sZ0RBQVMsQ0FBQywyQ0FBMkMsQ0FBQztJQUN4RSxPQUFPO1FBQ0hRLEtBQUssRUFBQztZQUNGTCxJQUFJLEVBQUNHLEdBQUcsQ0FBQ0gsSUFBSTtTQUNoQjtLQUNKO0NBQ0oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9idXNpbmVzcy8uL3BhZ2VzL21lbnUuanM/ZWMwZiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5cbmltcG9ydCBheGlvcyBmcm9tICdheGlvcyc7XG5pbXBvcnQgTWVudSBmcm9tICcuLi9jb21wb25lbnRzL01lbnUnO1xuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gbWVudSh7ZGF0YX0pe1xuICAgIHJldHVybiAoXG4gICAgICAgICAgICA8TWVudSBwcm9kdWN0cz17ZGF0YX0gLz5cblxuICAgIClcbn1cbmV4cG9ydCBjb25zdCBnZXRTZXJ2ZXJTaWRlUHJvcHMgPSBhc3luYyAoKSA9PntcbiAgICBjb25zdCByZXMgPSBhd2FpdCBheGlvcy5nZXQoXCJodHRwczovL3ZlcmNlbC5jb20vbWFyaW9lbnBpMTAxMi9idXNpbmVzc1wiKVxuICAgIHJldHVybiB7XG4gICAgICAgIHByb3BzOntcbiAgICAgICAgICAgIGRhdGE6cmVzLmRhdGEsXG4gICAgICAgIH1cbiAgICB9XG59XG5cbiJdLCJuYW1lcyI6WyJSZWFjdCIsImF4aW9zIiwiTWVudSIsIm1lbnUiLCJkYXRhIiwicHJvZHVjdHMiLCJnZXRTZXJ2ZXJTaWRlUHJvcHMiLCJyZXMiLCJnZXQiLCJwcm9wcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/menu.js\n");
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("axios");
 
 /***/ }),
 
-/***/ 2796:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/head-manager-context.js");
-
-/***/ }),
-
-/***/ 4014:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
-
-/***/ }),
-
-/***/ 8524:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/is-plain-object.js");
-
-/***/ }),
-
-/***/ 8020:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/mitt.js");
-
-/***/ }),
-
-/***/ 4406:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
-
-/***/ }),
-
-/***/ 4964:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router-context.js");
-
-/***/ }),
-
-/***/ 3938:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
-
-/***/ }),
-
-/***/ 9565:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
-
-/***/ }),
-
-/***/ 4365:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
-
-/***/ }),
-
-/***/ 1428:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
-
-/***/ }),
-
-/***/ 1292:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
-
-/***/ }),
-
-/***/ 979:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
-
-/***/ }),
-
-/***/ 6052:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
-
-/***/ }),
-
-/***/ 4226:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
-
-/***/ }),
-
-/***/ 5052:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
-
-/***/ }),
-
-/***/ 9232:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/utils.js");
-
-/***/ }),
-
-/***/ 6689:
-/***/ ((module) => {
-
+"use strict";
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 6290:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react-icons/fa");
-
-/***/ }),
-
-/***/ 997:
-/***/ ((module) => {
-
-module.exports = require("react/jsx-runtime");
+"use strict";
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ })
 
@@ -321,7 +95,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [505,664,49], () => (__webpack_exec__(6360)));
+var __webpack_exports__ = (__webpack_exec__("./pages/menu.js"));
 module.exports = __webpack_exports__;
 
 })();

@@ -1,0 +1,50 @@
+@import './Color.module.scss';
+
+.adminContainer{
+    // padding: 50px;
+    // display: flex;
+    .item{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 90%;
+        margin: 1rem auto;
+        overflow: hidden;
+        .heading{
+            display: flex;
+            justify-content: space-around;
+            h1{
+            color: $HeadLineColor;
+            }
+            input[type=button]{
+                border: none;
+                color: $HeadLineColor;
+                padding: 5px;
+                cursor: pointer;
+                background:#7f5af0 ;
+            }
+        }
+        table{
+            width: 100%;
+            border-spacing: 20px;
+            text-align: left;
+            font-size: .75rem;
+            th{
+                color: $HeadLineColor;
+            }
+            td{
+                color: $fontColor;
+            }
+            .price{
+                max-width: 40px;
+                overflow: hidden;
+                text-overflow: ellipsis !important;
+                white-space: nowrap;
+                &:hover, &:focus{
+                    overflow: visible;
+                }
+                }
+        }
+    }
+    
+}

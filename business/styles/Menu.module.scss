@@ -1,0 +1,62 @@
+@import './Color.module.scss';
+.Menu{
+    .title{
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 3rem 0;
+        color: $HeadLineColor;
+    }
+    .filterMenu{
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        margin: 0 auto;
+        font-size: .9rem;
+        margin-bottom: 2rem;
+        color: $fontColor;
+        text-transform: capitalize;
+        cursor: pointer;
+        .active{
+            border-bottom: 3px solid #7f5af0;
+        }
+
+    }
+    .container{
+        .title{
+            font-size: 1.25rem;
+            text-transform: capitalize;
+            margin: 1rem 0;
+        }
+        .items{
+            .item{
+                display: flex;
+                margin: 1rem auto;
+                line-height: 1.18rem;
+                color: $fontColor;
+                width: 90%;
+                justify-content: space-around;
+                flex-direction: column;
+                .titleAndPrice{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    color: $HeadLineColor;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    .name{
+                        max-width: 75%;
+                        text-transform: capitalize;
+                    }
+                }
+                .description{
+                    color: $fontColor;
+                    font-size: .81rem;
+                    max-width: 80%;
+                    margin: .75rem 0;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+
+}

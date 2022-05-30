@@ -1,0 +1,36 @@
+@import "./Color.module.scss";
+
+.Nav{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding:1rem 1.5rem;
+    font-size: 1.5rem;
+    a{
+        text-decoration: none;
+        color: $HeadLineColor;
+    }
+    .links{
+        display: none;
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        background-color: $backgroundColor;
+        height: 100vh;
+        text-align: center;
+        margin: 5rem 0;
+        z-index: 1;
+        a{
+            text-decoration: none;
+            color: $HeadLineColor;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+    .mobileMenu{
+        color: $HeadLineColor;
+    }
+}
