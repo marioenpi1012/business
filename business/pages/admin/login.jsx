@@ -10,7 +10,7 @@ export default function Login() {
 
     const handleClick = async () =>{
         try{
-            await axios.post('https://business-azure.vercel.app/api/login',{
+            await axios.post('https://elpanamericano.vercel.app/api/login',{
                 username, password
             })
             router.push("/admin")
