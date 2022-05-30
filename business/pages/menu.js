@@ -1,5 +1,4 @@
 import React from 'react'
-
 import axios from 'axios';
 import Menu from '../components/Menu';
 export default function menu({data}){
@@ -9,7 +8,7 @@ export default function menu({data}){
     )
 }
 export const getServerSideProps = async () =>{
-    const res = await axios.get("https://business-azure.vercel.app/api/menu")
+    const res = await axios.get("/api/products")
     return {
         props:{
             data:res.data,

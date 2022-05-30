@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import MenuItem from '../components/MenuItem'
 import Style from '../styles/Menu.module.scss'
 export default function Menu({products}) {
