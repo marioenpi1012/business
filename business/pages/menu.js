@@ -9,7 +9,7 @@ export default function menu({data}){
     )
 }
 export const getServerSideProps = async () =>{
-    const res = await axios.get("https://business-azure.vercel.app/")
+    const res = await axios.get("https://business-azure.vercel.app/api/menu")
     return {
         props:{
             data:res.data,
