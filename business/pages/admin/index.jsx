@@ -80,7 +80,7 @@ export default function index({products}) {
 }
 
 export const getServerSideProps = async () =>{
-    const productRes = await axios.get('https://elpanamericano.vercel.app/')
+    const productRes = await axios.get('https://elpanamericano.vercel.app/api/products')
 
     return{
         props:{
