@@ -20,7 +20,7 @@ export default function Add({productInfo, edit}) {
                 category:CATEGORY,
                 subcategory:SUBCATEGORY
             }
-            const res = await axios.put(`https://vercel.com/marioenpi1012/business/api/products/${_id}`,newProduct)
+            const res = await axios.put(`https://business-azure.vercel.app/api/products/${_id}`,newProduct)
         } catch (err) {
             console.log(err)      
         }
@@ -36,7 +36,7 @@ export default function Add({productInfo, edit}) {
                 category:CATEGORY,
                 subcategory:SUBCATEGORY
             }
-            const res = await axios.post('https://vercel.com/marioenpi1012/business/api/products',newProduct)
+            const res = await axios.post('https://business-azure.vercel.app//api/products',newProduct)
 
         } catch (err) {
             console.log(err)

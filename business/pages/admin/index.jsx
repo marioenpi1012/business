@@ -33,7 +33,7 @@ export default function index({products}) {
     }
     const handleDelete = async (id) =>{
         try {
-            await axios.delete('https://vercel.com/marioenpi1012/business' + id)
+            await axios.delete('https://business-azure.vercel.app/' + id)
             setProductsList(productsList.filter((products) => products._id !== id))
         } catch (err) {
             console.log(err)
@@ -80,7 +80,7 @@ export default function index({products}) {
 }
 
 export const getServerSideProps = async () =>{
-    const productRes = await axios.get('https://vercel.com/marioenpi1012/business')
+    const productRes = await axios.get('https://business-azure.vercel.app/')
 
     return{
         props:{
