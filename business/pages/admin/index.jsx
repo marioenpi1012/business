@@ -33,7 +33,7 @@ export default function index({products}) {
     }
     const handleDelete = async (id) =>{
         try {
-            await axios.delete('https://elpanamericano.vercel.app/' + id)
+            await axios.delete('https://elpanamericano.vercel.app/api/products' + id)
             setProductsList(productsList.filter((products) => products._id !== id))
         } catch (err) {
             console.log(err)

@@ -2,7 +2,8 @@
 
 // Phone Ready
 .LandingPage{
-    height: 100vh;
+    position: relative;
+    height: 100%;
     .landingImages {
         display: flex;
         flex-direction: column;
@@ -40,7 +41,7 @@
         input{
             -webkit-appearance: button;
             -moz-appearance: button;
-            background:#7f5af0 ;
+            background:$purple ;
             color: $HeadLineColor;
             text-transform: capitalize;
             padding: 1.2rem 2rem;
@@ -55,6 +56,7 @@
         }
     }
     .imagesWrapper{
+        position: relative;
         display: grid;
         grid-template-columns: repeat(12, [col-start] 1fr);
         gap: 20px;

@@ -15,7 +15,7 @@
             line-height: 39px;
             align-items: center;
             text-align: center;
-            color: #FFFFFE;
+            color: $HeadLineColor;
         }
         h4{
             height: 64px;
@@ -27,13 +27,13 @@
             display: flex;
             align-items: center;
             text-align: center;
-            color: #94A1B2;
+            color: $fontColor;
         }
 
         input{
             -webkit-appearance: button;
             -moz-appearance: button;
-            background:#7f5af0 ;
+            background:$purple;
             color: $HeadLineColor;
             text-transform: capitalize;
             padding: 1.2rem 2rem;

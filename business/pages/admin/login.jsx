@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
-import Style from '../../styles/Admin.module.scss'
+import Style from '../../styles/AdminLogin.module.scss'
 import axios from "axios"
 export default function Login() {
     const [username, setUsername] = useState(null)
@@ -22,14 +22,16 @@ export default function Login() {
         <div className={Style.container}>
             <div className={Style.wrapper}>
                 <h1>Admin Dashboard</h1>
+                <label htmlFor="username">Username</label>
                 <input  
-                    placeholder='username'
+                    name="username"
                     type='text'
                     className={Style.input}
                     onChange={(e)=>setUsername(e.target.value)}
                 />
+                <label htmlFor="password">Password</label>
                 <input  
-                    placeholder='password'
+                    name="password"
                     type='password'
                     className={Style.input}
                     onChange={(e)=>setPassword(e.target.value)}

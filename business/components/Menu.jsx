@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MenuItem from '../components/MenuItem'
 import Style from '../styles/Menu.module.scss'
+import { useSelector } from "react-redux";
 export default function Menu({products}) {
     console.log(products)
     const [category,setCategory]= useState('pupusas');
