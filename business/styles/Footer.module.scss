@@ -1,0 +1,35 @@
+@import "./Color.module.scss";
+
+.footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 15vh;
+    margin: 5rem 0;
+    .socialMedia{
+        display: flex;
+        color: $HeadLineColor;
+        border-radius: 50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        border: 1px solid $HeadLineColor;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+        align-items: center;
+    }
+    .info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .location,.phoneNumber{
+            color: $HeadLineColor;
+            font-size: 1rem;
+        }
+        .location{
+            margin: 1rem 0;
+        }
+    }
+}

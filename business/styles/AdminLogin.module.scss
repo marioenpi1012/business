@@ -1,0 +1,34 @@
+@import "./Color.module.scss";
+
+.container{
+    height: 90vh;
+    margin: 0 auto;
+    width: 90%;
+    .wrapper{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        h1{
+            color: $HeadLineColor;
+            text-align: center;
+        }
+        label{
+            color: $fontColor;
+            text-align: start;
+            margin: 1rem 0;
+        }
+        .input{
+            width: 100%;
+            padding: .8rem 0;
+
+        }
+        input[type='button']{
+            background-color: $purple;
+            color: $HeadLineColor;
+            margin: 2rem auto;
+            width: 60%;
+            padding: 1rem 0;
+        }
+    }
+}
