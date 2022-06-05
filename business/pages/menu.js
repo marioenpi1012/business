@@ -11,12 +11,12 @@ export const getServerSideProps = async () =>{
 }
 const  menu = ({data}) => {
     return (
-        <div>  
+        <>  
             <Head>
                 <title>EL Panamericano | Menu</title>
             </Head>
             <Menu products={data} />
-        </div>
+        </>
     )
 }
 export default menu;

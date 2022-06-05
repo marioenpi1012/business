@@ -5,9 +5,9 @@ function Footer() {
     return (
         <div className={Style.footer}>
             <div className={Style.socialMedia}>
-                <Link href='https://www.instagram.com/el_panamericano_deli/'>
+                <a href='https://www.instagram.com/el_panamericano_deli/' target="_blank">
                     <FaInstagram />
-                </Link>
+                </a>
             </div>
             <div className={Style.info}>
                 <div className={Style.location}>

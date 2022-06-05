@@ -3,35 +3,84 @@
 .Nav{
     display: flex;
     justify-content: space-between;
-    position: relative;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
     padding:1rem 1.5rem;
     font-size: 1.5rem;
+    overflow: hidden;
+    background-color: $backgroundColor;
     a{
         text-decoration: none;
         color: $HeadLineColor;
+        z-index: 2;
     }
+    .open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path:circle(1000px at 90% -10%) !important;
+        a {
+            opacity: 1 !important;
+        }
+        }
     .links{
-        display: none;
-        position: absolute;
+        display: flex;
         height: 100vh;
-        width: 100vw;
-        left: 0;
-        top: 0;
+        overflow: hidden;
+        position: fixed;
+        justify-content: center;
+        // left: 0;
+        // top: 0;
         flex-direction: column;
         background-color: $backgroundColor;
-        text-align: center;
-        margin: 5rem 0;
-        z-index: 1;
-        overflow: hidden;
+        // margin: 5rem 0;
+        // z-index: 1;
+        // overflow: hidden;
+        align-items: center;
+        clip-path: circle(100px at 90% -10%);
+        -webkit-clip-path:circle(100px at 90% -10%);
+        right: 0;
+        width: 100%;
+        transition: all 1s ease-out;
+        
         a{
             text-decoration: none;
             color: $HeadLineColor;
             margin: 2rem 0;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 2;
+            opacity: 0;
+            &:nth-child(1){
+                transition: all 0.5s ease 0.2s;
+            }
+            &:nth-child(2){
+                transition: all 0.5s ease 0.4s;
+            }
+            &:nth-child(3){
+                transition: all 0.5s ease 0.6s;
+            }
+        }
+        .instagram{
+            display: flex;
+            color: $HeadLineColor;
+            border-radius: 50%;
+            -moz-border-radius:50%;
+            -webkit-border-radius:50%;
+            border: 1px solid $HeadLineColor;
+            width: 36px;
+            height: 36px;
+            justify-content: center;
+            align-items: center;
         }
     }
     .mobileMenu{
         color: $HeadLineColor;
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        z-index: 2;
     }
 }
