@@ -3,8 +3,9 @@
 .Nav{
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
     position: fixed;
+    line-height: 50px;
     top: 0;
     left: 0;
     z-index: 100;
@@ -77,10 +78,44 @@
         }
     }
     .mobileMenu{
-        color: $HeadLineColor;
-        align-self: flex-end;
-        display: initial;
-        position: absolute;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
         z-index: 2;
+        .burger{    
+            width: 30px;
+            height: 3px;
+            background-color: $HeadLineColor;
+            transition: all .5s ease-in-out;
+            &::after, &::before{
+                content:"";
+                position: absolute;
+                width: 30px;
+                height: 3px;
+                background-color: $HeadLineColor;
+                transition: all .5s ease-in-out;
+            }
+            &::before{
+                transform: translateY(-10px);
+            }
+            &::after{
+                transform: translateY(10px);
+            }
+        }
+    }
+    // ANIMATION
+    .mobileMenu.burgerOpen .burger{
+        background-color: transparent;
+        &::before{
+            transform: rotate(45deg) ;
+        }
+        &::after{
+            transform: rotate(-45deg) ;
+        }
     }
 }

@@ -30,6 +30,7 @@ export default function index({products}) {
     const handleEdit = async (product) =>{
         setEditProduct(product)
         setEdit(!edit)
+
     }
     const handleDelete = async (id) =>{
         try {
@@ -44,7 +45,9 @@ export default function index({products}) {
             <div className={Style.item}>
                 <div className={Style.heading}>
                     <h1>Products</h1>
-                    <input type="button" value="Create new product" onClick={()=>setCreate(!create)} />
+                    <a href="#edit/create">
+                        <input type="button" value="Create new product" onClick={()=>setCreate(!create)} />
+                    </a>
                 </div>
                 <table>
                     <tbody>
@@ -64,8 +67,10 @@ export default function index({products}) {
                             <td>{product.title}</td>
                             <td>${product.price}</td>
                             <td>
-                                <input type="button" value="Edit" onClick={()=> handleEdit(product)} />
-                                <input type="button" value="Delete" onClick={()=>handleDelete(product._id)} />
+                                <a href="#edit/create">
+                                    <input id='edit' type="button" value="Edit" onClick={()=> handleEdit(product)} />
+                                </a>
+                                <input id={Style.delete} type="button" value="Delete" onClick={()=>handleDelete(product._id)} />
                             </td>
                         </tr>
                     </tbody>
@@ -73,8 +78,12 @@ export default function index({products}) {
                     
                 </table>
             </div>
-            {edit && <Add edit productInfo={editProduct}/>}
-            {create && <Add />}
+            <>
+                <span id="edit/create"></span>
+                {edit && <Add edit productInfo={editProduct}/>}
+                {create && <Add />}
+            </>
+            
         </div>
     )
 }

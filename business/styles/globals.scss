@@ -10,6 +10,8 @@ body{
     font-family: 'Libre Baskerville', serif;
     background-color: $backgroundColor;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top:var(--scroll-padding, 50px);
 }
 
 
