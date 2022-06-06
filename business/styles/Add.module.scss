@@ -1,0 +1,44 @@
+@import "./Color.module.scss";
+.addWrapper{
+    
+    .wrapper{
+        width: 90%;
+        margin: 0 auto;
+        .controls{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            div, h1{
+            color: $HeadLineColor;
+            font-size: 2rem;
+        }
+        }
+        
+        .item{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: $fontColor;
+                margin: 1rem 0;
+                font-size: 1.25rem;
+                text-transform: capitalize;
+            }
+            input{
+                height: 2.5rem;
+            }
+        }
+        input[type='button']{
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            margin: 2rem 0;
+            background-color: $purple;
+            color: $HeadLineColor;
+            padding: 1rem 3rem;
+            border-radius: 5%;
+            -webkit-border-radius:5%;
+            -moz-border-radius:5%;
+            font-size: 1.25rem;
+        }
+    }
+}
