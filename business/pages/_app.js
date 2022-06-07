@@ -9,9 +9,7 @@ const Loading = () =>{
     const [loading, setLoading] = useState(false);
     useEffect(()=>{
         const handleStart = (url) => (url !== router.asPath) && setLoading(true);
-        const handleComplete = (url) => (url === router.asPath) && setTimeout(() => {
-            setLoading(false)
-        }, 5000); 
+        const handleComplete = (url) => (url === router.asPath) && setLoading(false)
 
         router.events.on('routerChangeStart', handleStart)
         router.events.on('routerChangeComplete', handleComplete)
