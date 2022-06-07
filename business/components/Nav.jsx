@@ -14,15 +14,17 @@ const Nav = () => {
     
     return (
         <div className={Style.Nav}>
-            <Link href='/'>El Panamericano</Link>
+            <Link href='/' > 
+                <a onClick={()=> open && setOpen(!open)}>El Panamericano </a> 
+            </Link>
             <div className={open ? `${Style.mobileMenu} ${Style.burgerOpen} ` : Style.mobileMenu} onClick={()=>setOpen(!open)}>
                 <div className={Style.burger}></div>
             </div>
             <nav className={open ? `${Style.links} ${Style.open} `: Style.links } style={open ? {display:'flex'} : {}} >
-                <Link href='/menu' > 
+                <Link href='/menu' passHref > 
                     <a onClick={()=>setOpen(!open)}>Menu</a>
                 </Link>
-                <Link href='/location'> 
+                <Link href='/location' passHref> 
                     <a onClick={()=>setOpen(!open)}>Location</a>
                 </Link>
                 <a className={Style.instagram} href='https://www.instagram.com/el_panamericano_deli/' target="_blank">

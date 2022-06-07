@@ -13,7 +13,7 @@ const LandingPage = () =>{
                 <div className={Style.description}>
                     <p>Reference the "pan-America" highway that passes through different countries; We offer variaty types of food from other countries such as El Salvador, Honduras and Mexico. </p>
                 </div>
-                <Link href='/menu'>
+                <Link href='/menu' passHref>
                     <input type="button" value="Check our Menu" />
                 </Link>
             </div>
