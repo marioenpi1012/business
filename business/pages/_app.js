@@ -1,28 +1,27 @@
-import { useRouter } from "next/router";
+import "../styles/globals.scss";
+import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import "../styles/globals.scss";
 
 
 const Loading = () =>{
     const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    useEffect(()=>{
-        const handleStart = (url) => (url !== router.asPath) && setLoading(true);
-        const handleComplete = (url) => (url === router.asPath) && setLoading(false)
-
-        router.events.on('routerChangeStart', handleStart)
-        router.events.on('routerChangeComplete', handleComplete)
+    const [loading, setLoading] = useState(true);
+    useEffect( ()=>{
+        setTimeout(()=> {setLoading(false)},8000)
+        const handleStart = (url) => (url  !== router.asPath) && setLoading(true);
+        const handleComplete = (url) => (url === router.asPath) && setTimeout(()=>{setLoading(false)},3000) 
+        console.log(router.asPath)
+        router.events.on('routerChangeStart', handleStart())
+        router.events.on('routerChangeComplete', handleComplete())
         router.events.on('routerChangeError', handleComplete)
-        console.log('working.')
         return  () => {
-        router.events.off('routerChangeStart', handleStart)
-        router.events.off('routerChangeComplete', handleComplete)
-        router.events.off('routerChangeError', handleComplete)
-        console.log('working..')
+            router.events.off('routerChangeStart', handleStart())
+            router.events.off('routerChangeComplete', handleComplete())
+            router.events.off('routerChangeError', handleComplete)
         }
         
-    },[])
+    },[router.events])
     return loading && (
         <div className="spinnerWrapper">
             <div className="spinner" /> 
@@ -33,8 +32,9 @@ const Loading = () =>{
 function MyApp({ Component, pageProps }) {
     return (
         <>
-            <Loading />
+            
             <Layout>
+                <Loading />
                 <Component {...pageProps} />
             </Layout>
         </>

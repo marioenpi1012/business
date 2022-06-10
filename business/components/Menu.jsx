@@ -2,7 +2,7 @@ import { useState } from "react";
 import MenuItem from '../components/MenuItem'
 import Style from '../styles/Menu.module.scss'
 export default function Menu({products}) {
-    console.log(products)
+    console.log(products.filter(product => product.subcategory === 'tortas'))
     const [category,setCategory]= useState('pupusas');
     const filterMenu = (event)=>{
 
@@ -37,16 +37,32 @@ export default function Menu({products}) {
                     ))}
                     </div>
                     <div className={Style.title}>
-                    {category === 'breakfast' && 'Breakfast ' || category === 'mexican food' && "Gorditas"}
+                    {category === 'breakfast' && 'Breakfast ' || category === 'mexican food' && "Gorditas" }
                     </div>
                     <div className={Style.items}>
                         {
                             products.map((product)=>(
-                                category === product.category && product.subcategory !== 'tacos' &&
-                                <MenuItem key={product._id} product={product} />
+                                category === product.category && product.subcategory !== 'tacos' && product.subcategory !== 'tortas' &&
+                                <MenuItem key={product._id} product={product} /> 
                             ))
                         }
                     </div>
+                        <div className={Style.title}>{category === 'mexican food' && 'Tortas'}</div>
+                    <div className={Style.items}>
+                        {
+                            products.map((product)=>(
+                                category === product.category && product.subcategory !== 'tacos' && product.subcategory !== 'gorditas' && product.category !== 'pupusas' &&
+                                <MenuItem key={product._id} product={product} /> 
+                            ))
+                        }
+                    </div>
+                    {
+                        products.map((product) =>( 
+                            category === product.category && 
+                            <MenuItem key={product._id} product={product} /> &&
+                            product.subcategory 
+                        ))
+                    }
                 </div>
             </div>
     )

@@ -8,16 +8,20 @@
     line-height: 50px;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 101;
     width: 100vw;
     padding:1rem 1.5rem;
     font-size: 1.5rem;
-    overflow: hidden;
+    // overflow: hidden;
     background-color: $backgroundColor;
     a{
         text-decoration: none;
         color: $HeadLineColor;
         z-index: 2;
+        animation: logoAnimation 5s ease-in-out 3s forwards;
+        transform: translate(30%, 35vh);
+        transition: transform ease-in-out;
+        
     }
     .open{
         clip-path: circle(1000px at 90% -10%);
@@ -87,6 +91,9 @@
         cursor: pointer;
         transition: all .5s ease-in-out;
         z-index: 2;
+        animation:hamburgerAnimation 5s ease-in-out 3s forwards;
+        transform:  scale(0) translateX(-10px);
+        // transition: transform ease-in-out;
         .burger{    
             width: 30px;
             height: 3px;
@@ -108,7 +115,30 @@
             }
         }
     }
-    // ANIMATION
+    // ANIMATIONS
+    @keyframes logoAnimation {
+        0%{
+            transform: translate(30%, 35vh);
+        }
+        90%{
+            transform: translate(0, 10%);
+        }
+        100%{
+            transform: translate(0,0);
+        }
+    }
+    @keyframes hamburgerAnimation {
+        0%{
+            transform: scale(0) translateX(-10px);
+        }
+        90%{
+            transform: scale(1.1);
+        }
+        100%{
+            transform: scale(1) translateX(0);
+        }
+    }
+
     .mobileMenu.burgerOpen .burger{
         background-color: transparent;
         &::before{
