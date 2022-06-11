@@ -13,6 +13,7 @@
     padding:1rem 1.5rem;
     font-size: 1.5rem;
     // overflow: hidden;
+    transition: transform 3s ease-in-out;
     background-color: $backgroundColor;
     a{
         text-decoration: none;

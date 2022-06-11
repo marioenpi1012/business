@@ -4,38 +4,6 @@
     position: relative;
     height: 100%;
     margin: 5rem 0;
-    .spinnerWrapperHome{
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: $backgroundColor;
-        z-index: 100;
-        .spinner{
-        display: inline-block;
-        width: 80px;
-        height: 80px;
-        &::after{
-            content: "";
-            display: block;
-            width: 64px;
-            height: 64px;
-            margin: 8px;
-            -webkit-border-radius:50%;
-            -moz-border-radius:50%;
-            border-radius: 50%;
-            border: 6px solid #fff;
-            border-color: $purple transparent $purple transparent;
-            -webkit-animation:rotation .5s infinite linear;
-            -moz-animation:rotation .5s infinite linear;
-            animation: rotation 1.2s linear infinite;
-        }
-    }
-    }
     .landingImages {
         display: flex;
         flex-direction: column;
@@ -116,19 +84,3 @@
     }
 }
 
-@-webkit-keyframes rotation{
-    from{-webkit-transform: rotate(0deg);}
-    to{-webkit-transform: rotate(359deg);}
-}
-@-moz-keyframes rotation{
-    from{-moz-transform: rotate(0deg);}
-    to{-moz-transform: rotate(359deg);}
-}
-@-o-keyframes rotation{
-    from{-o-transform: rotate(0deg);}
-    to{-o-transform: rotate(359deg);}
-}
-@keyframes rotation{
-    from{transform: rotate(0deg);}
-    to{transform: rotate(359deg);}
-}

@@ -7,6 +7,11 @@ import Layout from "../components/Layout";
 const Loading = () =>{
     const [loading, setLoading] = useState(false);
     useEffect( ()=>{
+        // In case reLoading 
+        setLoading(true)
+        setTimeout(()=>{
+            setLoading(false)
+        },5000)
         const handleStart = (url) => (url  !== Router.asPath) && setLoading(true);
         const handleComplete = (url) => (url === Router.asPath) && setLoading(false)
         Router.events.on('routeChangeStart', handleStart)
