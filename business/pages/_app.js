@@ -1,27 +1,24 @@
 import "../styles/globals.scss";
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 
 
 const Loading = () =>{
-    const router = useRouter();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     useEffect( ()=>{
-        setTimeout(()=> {setLoading(false)},8000)
-        const handleStart = (url) => (url  !== router.asPath) && setLoading(true);
-        const handleComplete = (url) => (url === router.asPath) && setTimeout(()=>{setLoading(false)},3000) 
-        console.log(router.asPath)
-        router.events.on('routerChangeStart', handleStart())
-        router.events.on('routerChangeComplete', handleComplete())
-        router.events.on('routerChangeError', handleComplete)
+        const handleStart = (url) => (url  !== Router.asPath) && setLoading(true);
+        const handleComplete = (url) => (url === Router.asPath) && setLoading(false)
+        Router.events.on('routeChangeStart', handleStart)
+        Router.events.on('routeChangeComplete', handleComplete)
+        Router.events.on('routeChangeError', handleComplete)
         return  () => {
-            router.events.off('routerChangeStart', handleStart())
-            router.events.off('routerChangeComplete', handleComplete())
-            router.events.off('routerChangeError', handleComplete)
+            Router.events.off('routeChangeStart', handleStart)
+            Router.events.off('routeChangeComplete', handleComplete)
+            Router.events.off('routeChangeError', handleComplete)
         }
         
-    },[router.events])
+    },[Router.events])
     return loading && (
         <div className="spinnerWrapper">
             <div className="spinner" /> 
@@ -32,7 +29,6 @@ const Loading = () =>{
 function MyApp({ Component, pageProps }) {
     return (
         <>
-            
             <Layout>
                 <Loading />
                 <Component {...pageProps} />

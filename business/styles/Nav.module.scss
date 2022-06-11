@@ -18,8 +18,8 @@
         text-decoration: none;
         color: $HeadLineColor;
         z-index: 2;
-        animation: logoAnimation 5s ease-in-out 3s forwards;
-        transform: translate(30%, 35vh);
+        animation: logoAnimation 3s ease-in-out 2s forwards;
+        transform: translate(17vw, 35vh);
         transition: transform ease-in-out;
         
     }
@@ -118,7 +118,7 @@
     // ANIMATIONS
     @keyframes logoAnimation {
         0%{
-            transform: translate(30%, 35vh);
+            transform: translate(17vw, 35vh);
         }
         90%{
             transform: translate(0, 10%);

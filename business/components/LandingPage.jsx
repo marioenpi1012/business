@@ -1,10 +1,23 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Router from 'next/router'
+import {useState, useEffect} from 'react'
 import Style from "../styles/Home.module.scss"
 const LandingPage = () =>{
+    const [loading,setLoading] = useState(false)
+    useEffect(()=>{
+        setLoading(true)
+        setTimeout(()=>{
+            setLoading(false)
+        },5000)
+    },[])
     return (
         <div className={Style.LandingPage}>
+            {loading &&
+                <div className={Style.spinnerWrapperHome}>
+                    <div className={Style.spinner}></div>
+                </div>
+            }
+            
             <div className={Style.landingImages}>
                 <Image src='/img/pupusas.jpg'  height={200} width={300}  alt="Pupusas image" />
                 <Image src='/img/pupusas-2.jpg' priority={true} height={200} width={300} alt="Pupusas image" />

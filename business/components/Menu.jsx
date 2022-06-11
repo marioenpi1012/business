@@ -19,10 +19,10 @@ export default function Menu({products}) {
             <div className={Style.Menu}>
                 <div className={Style.title}>Menu</div>
                 <div className={Style.filterMenu}>
-                    <div data-value='pupusas' className={Style.filterBtn ,Style.active} onClick={filterMenu}>pupusas</div>
+                    <div data-value='pupusas' className={`${Style.filterBtn} ${Style.active}`} onClick={filterMenu}>pupusas</div>
                     <div data-value='breakfast' className={Style.filterBtn} onClick={filterMenu}>breakfast</div>
                     <div data-value='lunch' className={Style.filterBtn} onClick={filterMenu}>lunch</div>
-                    <div data-value='mexican food' className={Style.filterBtn} onClick={filterMenu}>Tacos/Gorditas</div>
+                    <div data-value='mexican food' className={Style.filterBtn} onClick={filterMenu}>Mexican fast food</div>
 
                 </div>
                 <div className={Style.container}>
@@ -56,13 +56,6 @@ export default function Menu({products}) {
                             ))
                         }
                     </div>
-                    {
-                        products.map((product) =>( 
-                            category === product.category && 
-                            <MenuItem key={product._id} product={product} /> &&
-                            product.subcategory 
-                        ))
-                    }
                 </div>
             </div>
     )
