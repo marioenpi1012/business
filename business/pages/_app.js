@@ -8,7 +8,6 @@ const Loading = () =>{
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     useEffect( ()=>{
-        setTimeout(()=> {setLoading(false)},8000)
         const handleStart = (url) => (url  !== router.asPath) && setLoading(true);
         const handleComplete = (url) => (url === router.asPath) && setTimeout(()=>{setLoading(false)},3000) 
         console.log(router.asPath)

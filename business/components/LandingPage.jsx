@@ -5,6 +5,9 @@ import Style from "../styles/Home.module.scss"
 const LandingPage = () =>{
     return (
         <div className={Style.LandingPage}>
+            <div className="spinnerWrapper">
+                <div className="spinner"></div>
+            </div>
             <div className={Style.landingImages}>
                 <Image src='/img/pupusas.jpg'  height={200} width={300}  alt="Pupusas image" />
                 <Image src='/img/pupusas-2.jpg' priority={true} height={200} width={300} alt="Pupusas image" />
