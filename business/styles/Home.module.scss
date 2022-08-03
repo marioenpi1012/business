@@ -1,22 +1,47 @@
 @import "./Color.module.scss";
-
 // Phone Ready
 .LandingPage{
     position: relative;
     height: 100%;
     margin: 5rem 0;
     .landingImages {
-        display: flex;
+        position: relative;
+        // display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        height: 60vh;
-        width: 90%;
+        padding-top:5rem;
+        min-height: 90vh;
+        height: 100%;
+        // width: 82.5%;
+        width:100%;
         margin: 0 auto;
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12,50px);
+        // grid-auto-rows: 100px;
+        :nth-child(1),:nth-child(2){
+            span {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+        :nth-child(1){
+            grid-column: 2 / span 7;
+            grid-row: 1/ span 3;
+        }
+        :nth-child(2){
+            grid-column: 4 /  span 8 ;
+            grid-row: 5 / span 8;
+            span img{
+                height: 400px !important;
+            }
+        }
+        
         span {
             margin: .55rem 0 !important;
             img{
-            width: 100%;
-            height: 300px;
+                width: 100%;
+                height: 100% !important ;
+                object-fit: cover;
             }
         }
     }
@@ -24,15 +49,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        height: 250px;
+        justify-content: space-evenly;
+        height: 300px;
+        width: 100%;
+        margin: auto;
+        margin-bottom:5rem;
         .title {
             color: $HeadLineColor;
             font-size:1.5rem;
         }
         .description {
             text-align: center;
-            width: 90%;
+            width: 85%;
             margin: 0 auto;
             p{
                 color:$fontColor;
@@ -58,27 +86,199 @@
     }
     .imagesWrapper{
         position: relative;
-        margin: 2rem 0;
+        margin: 2rem auto;
+        width: 90%;
+        height: 100%;
         display: grid;
-        grid-template-columns: repeat(12, [col-start] 1fr);
+        grid-template-columns:repeat(2, 1fr);
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
         gap: 20px;
-        
+        grid-template-areas:
+            'one two'
+            'one three'
+            'four three'
+            'four five'
+            'six  five'
+        ;
+        :nth-child(1),:nth-child(3),:nth-child(4),:nth-child(5){
+            height: 100% !important;
+        }
+        :nth-child(2),:nth-child(6){
+            height:100% !important;
+        }
         :nth-child(1){
-            grid-column: col-start 2 / span 5;
-            grid-row: 1 / 8;
+            grid-area: one;
         }
         :nth-child(2){
-            grid-column: col-start 7 / span 5;
-            grid-row: 1;
+            grid-area: two;
         }
         :nth-child(3){
-            grid-column: col-start 2 / span 5;
-            grid-row: 8;
+            grid-area: three;
         }
         :nth-child(4){
-            grid-column: col-start 7 / span 5;
-            grid-row: 2 / 9;
+            grid-area: four;
         }
+        :nth-child(5){
+            grid-area: five;
+        }
+        :nth-child(6){
+            grid-area: six;
+        }
+        .image{
+            object-fit: cover;
+            width: 1000px;
+        }
+    }
+}
+@media screen and (min-width:768px){
+    .LandingPage{
+        margin:0;
+        .landingImages{
+            :nth-child(1){
+                grid-row: 5 / span 4;
+                grid-column: 2 / span 4;
+            }
+            :nth-child(2){
+                grid-row: 2 / span 10;
+                grid-column: 7 / span 5;
+            }
+        }
+        .landingDescription{
+            padding-top:10rem;
+            margin-bottom:10rem;
+            .title{
+                font-size:2rem;
+            }
+            .description p{
+                font-size:1.5rem;
+            }
+            input{
+                height: 5rem;
+                width:50%;
+            }
+        }
+        .imagesWrapper{
+            min-height: 100vh;
+            height:100%;
+            // grid-auto-rows:200px
+        }
+    }
+}
+@media screen and (min-width:1024px){
+    .LandingPage{
+        .landingDescription{
+            .title{
+                font-size:2.5rem;
+            }
+            .description p{
+                font-size: 1.8rem;
+            }
+            input{
+                width: 35%;
+                padding-top:1.5rem;
+                padding-bottom:1.5rem;
+                font-size:1.25rem;
+            }
+        }
+    }
+}
 
+@media screen and (min-width:1400px){
+    .LandingPage{
+        .landingImages{
+            margin: 0 auto;
+            display: flex;
+            flex-direction:row;
+            align-items:center;
+            gap:6rem;
+            padding-left:3rem;
+            padding-right:3rem;
+            .imageWrapper{
+                width:100%;
+                height:100%;
+                span{
+                    margin: 0 !important;
+                }
+            }
+            .image1{
+                width: 100%;
+                height: 100%;
+                span img{
+                    width:649px !important;
+                    height:486px !important;
+                }
+            }
+            .image2{
+                width:100%;
+                height: 70%;
+                text-align:center;
+                span img{
+                    height: 660px !important;
+                    width:100% !important;
+                }
+            }
+        }
+        .landingDescription{
+            height: 100vh;
+            .title{
+                font-size:3.5rem;
+            }
+            .description{
+                width: 75%;
+                p{
+                    font-size:2rem;
+                }
+            }
+            input{
+                width:25%;
+                height:6rem;
+                padding-top:2rem;
+                padding-bottom:2.5rem;
+                font-size:1.5rem;
+            }
+        }
+        .imagesWrapper{
+            grid-auto-rows:322.5px;
+        }
+    }
+}
+
+@media screen and (min-width:2560px){
+    .LandingPage{
+        max-width:90vw;
+        margin:0 auto;
+        .landingImages{
+            padding-top:10rem;
+            .image1{
+                span img{
+                    height: 45vh !important;
+                    width: 70vw !important;
+                }
+            }
+            .image2{
+                span img{
+                    height: 85vh !important;
+                    width:35vw !important;
+                }
+            }
+        }
+        .landingDescription{
+            padding-top: 20rem;
+            .title{
+                font-size:10rem;
+            }
+            .description p{
+                font-size:3rem;
+            }
+            input{
+                height:10rem;
+                width:25%;
+                font-size:2rem;
+            }
+        }
+        .imagesWrapper{
+            grid-auto-rows:600px;
+        }
     }
 }

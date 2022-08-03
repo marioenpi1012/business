@@ -13,13 +13,14 @@
     padding:1rem 1.5rem;
     font-size: 1.5rem;
     // overflow: hidden;
+    transition: transform 3s ease-in-out;
     background-color: $backgroundColor;
     a{
         text-decoration: none;
         color: $HeadLineColor;
         z-index: 2;
-        animation: logoAnimation 5s ease-in-out 3s forwards;
-        transform: translate(30%, 35vh);
+        // animation: logoAnimation 3s ease-in-out 2s forwards;
+        // transform: translate(17vw, 35vh);
         transition: transform ease-in-out;
         
     }
@@ -49,23 +50,25 @@
         right: 0;
         width: 100%;
         transition: all 1s ease-out;
-        
-        a{
-            text-decoration: none;
-            color: $HeadLineColor;
-            margin: 2rem 0;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 2;
-            opacity: 0;
-            &:nth-child(1){
-                transition: all 0.5s ease 0.2s;
-            }
-            &:nth-child(2){
-                transition: all 0.5s ease 0.4s;
-            }
-            &:nth-child(3){
-                transition: all 0.5s ease 0.6s;
+        ul li{
+            list-style:none;
+            a{
+                text-decoration: none;
+                color: $HeadLineColor;
+                // margin: 2rem 0;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 2;
+                opacity: 0;
+                &:nth-child(1){
+                    transition: all 0.5s ease 0.2s;
+                }
+                &:nth-child(2){
+                    transition: all 0.5s ease 0.4s;
+                }
+                &:nth-child(3){
+                    transition: all 0.5s ease 0.6s;
+                }
             }
         }
         .instagram{
@@ -92,7 +95,7 @@
         transition: all .5s ease-in-out;
         z-index: 2;
         animation:hamburgerAnimation 5s ease-in-out 3s forwards;
-        transform:  scale(0) translateX(-10px);
+        // transform:  scale(0) translateX(-10px);
         // transition: transform ease-in-out;
         .burger{    
             width: 30px;
@@ -116,28 +119,28 @@
         }
     }
     // ANIMATIONS
-    @keyframes logoAnimation {
-        0%{
-            transform: translate(30%, 35vh);
-        }
-        90%{
-            transform: translate(0, 10%);
-        }
-        100%{
-            transform: translate(0,0);
-        }
-    }
-    @keyframes hamburgerAnimation {
-        0%{
-            transform: scale(0) translateX(-10px);
-        }
-        90%{
-            transform: scale(1.1);
-        }
-        100%{
-            transform: scale(1) translateX(0);
-        }
-    }
+    // @keyframes logoAnimation {
+    //     0%{
+    //         transform: translate(17vw, 35vh);
+    //     }
+    //     90%{
+    //         transform: translate(0, 10%);
+    //     }
+    //     100%{
+    //         transform: translate(0,0);
+    //     }
+    // }
+    // @keyframes hamburgerAnimation {
+    //     0%{
+    //         transform: scale(0) translateX(-10px);
+    //     }
+    //     90%{
+    //         transform: scale(1.1);
+    //     }
+    //     100%{
+    //         transform: scale(1) translateX(0);
+    //     }
+    // }
 
     .mobileMenu.burgerOpen .burger{
         background-color: transparent;
@@ -146,6 +149,104 @@
         }
         &::after{
             transform: rotate(-45deg) ;
+        }
+    }
+}
+
+
+@media screen and (min-width:768px){
+    .Nav{
+        // padding-top: 1.5rem;
+        // padding-bottom: 1.5rem;
+        padding:1.125rem 2rem;
+        .name{
+            width: 100%;
+            padding-left:1rem;
+            font-size:1.125rem;
+        }
+        // .mobileMenu{
+        //     display: none;
+        // }
+        // .links{
+        //     position: relative;
+        //     height: 100%;
+        //     display: flex;
+        //     flex-direction: row;
+        //     -webkit-clip-path:none !important;
+        //     clip-path:none !important;
+        //     padding-right:1rem;
+        //     a{
+        //         width:100%;
+        //         font-size: 1.125rem;
+        //         margin-right:0;
+        //         opacity: 1;
+        //         text-align:center;
+        //     }
+        // }
+    } 
+}
+@media screen and (min-width:1024px){
+    .Nav{
+        align-items: center;
+        padding: 1.5rem 3rem;
+        .name{
+            font-size: 1.25rem;
+        }
+        .mobileMenu{
+            display: none;
+        }
+        .links{
+            position: relative;
+            height: 100%;
+            -webkit-clip-path:none !important;
+            clip-path:none !important;
+            ul {
+                width: 100%;
+                display: flex;  
+                position: relative;
+                flex-direction: row;
+                padding-right:1rem;  
+                margin: 0;
+                justify-content:flex-end;
+                li{
+                    opacity: 1 !important;
+                    transform: none !important;
+                    margin: 0 1rem;
+                    a{
+                        width:100%;
+                        font-size: 1.125rem;
+                        margin-right:0;
+                        opacity: 1;
+                        text-align:center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px){
+    .Nav{
+        .name{
+            font-size:1.5rem;
+        }
+        .links{
+            ul li a{
+                font-size:1.5rem;
+            }
+        }
+    }
+}
+@media screen and (min-width:2550px){
+    .Nav{
+        padding:6rem 10rem;
+        .name{
+            font-size: 3rem;
+        }
+        .links{
+            ul li a{
+                font-size:2.75rem;
+            }
         }
     }
 }

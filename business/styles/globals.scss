@@ -13,7 +13,7 @@ body{
     scroll-behavior: smooth;
     scroll-padding-top:var(--scroll-padding, 50px);
 }
-.spinnerWrapper{
+@mixin spinnerWrapper{
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -24,6 +24,9 @@ body{
     left: 0;
     background-color: $backgroundColor;
     z-index: 100;
+}
+.spinnerWrapper{
+    @include spinnerWrapper;
     .spinner{
         display: inline-block;
         width: 80px;
