@@ -4,6 +4,9 @@ import Style from "../styles/Home.module.scss"
 import Pupusa from '../public/img/pupusas.jpg';
 import Pupusa2 from '../public/img/pupusas-2.jpg';
 import MiniTacos from '../public/img/mini-tacos.jpg'
+import MiniTacos2 from '../public/img/mini-tacos-2.jpg'
+import MiniTacos3 from '../public/img/mini-tacos-3.jpg'
+import Tacos from '../public/img/tacos.jpg'
 import { motion } from 'framer-motion';
 const LandingPage = () =>{
     return (
@@ -13,7 +16,7 @@ const LandingPage = () =>{
                 <Image src={Pupusa2}  loading='lazy'  alt="Pupusas image" quality={90}/>
             </div>
             <div className={`${Style.imageWrapper} ${Style.image2}`}>
-                <Image src={MiniTacos}   loading='lazy' alt='Pupusas image' quality={90} />
+                <Image src={MiniTacos} loading='lazy' alt='Pupusas image' quality={90} />
             </div>
             </div>
             <div 
@@ -32,12 +35,12 @@ const LandingPage = () =>{
                 </Link>
             </div>
             <div className={Style.imagesWrapper}>
-                <Image src='/img/mini-tacos.jpg' width='100%' height={100} loading='lazy'  layout='responsive' className={Style.image}/>
-                <Image src='/img/tacos.jpg' width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
-                <Image src='/img/mini-tacos-2.jpg' width={150} height={100}  loading='lazy' layout='responsive' className={Style.image}/>
-                <Image src='/img/pupusas-2.jpg' width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
-                <Image src='/img/mini-tacos-3.jpg' width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
-                <Image src='/img/pupusas.jpg' width={150} height={100} loading='lazy'  layout='responsive' className={Style.image}/>
+                <Image src={MiniTacos} width='100%' height={100} loading='lazy'  layout='responsive' className={Style.image}/>
+                <Image src={Tacos} width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
+                <Image src={MiniTacos2} width={150} height={100}  loading='lazy' layout='responsive' className={Style.image}/>
+                <Image src={Pupusa2} width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
+                <Image src={MiniTacos3} width={150} height={100} loading='lazy' layout='responsive' className={Style.image}/>
+                <Image src={Pupusa} width={150} height={100} loading='lazy'  layout='responsive' className={Style.image}/>
             </div>
         </div>
     )

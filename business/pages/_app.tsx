@@ -1,8 +1,8 @@
 import "../styles/globals.scss";
 import Router from 'next/router'
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout.jsx";
-
+import Layout from "../components/Layout";
+import type { AppProps } from 'next/app'
 
 const Loading = () =>{
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const Loading = () =>{
     )
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }:AppProps) {
     return (
         <>
             <Layout>

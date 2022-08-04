@@ -1,6 +1,8 @@
 import { useState } from "react";
-import MenuItem from '../components/MenuItem'
+import MenuItem from './MenuItem'
 import Style from '../styles/Menu.module.scss'
+import { Product } from '../additional'
+
 export default function Menu({products}) {
     console.log(products.filter(product => product.subcategory === 'tortas'))
     const [category,setCategory]= useState('pupusas');
@@ -30,7 +32,7 @@ export default function Menu({products}) {
                         {category === 'breakfast' && 'Breakfast Tacos' || category === 'mexican food' && "tacos"}
                     </div>
                     <div className={Style.items}>
-                    {products.map((product)=>(
+                    {products.map((product:Product)=>(
                         category === product.category &&
                             product.subcategory === 'tacos' 
                                 && <MenuItem key={product._id} product={product}  />
@@ -41,7 +43,7 @@ export default function Menu({products}) {
                     </div>
                     <div className={Style.items}>
                         {
-                            products.map((product)=>(
+                            products.map((product:Product)=>(
                                 category === product.category && product.subcategory !== 'tacos' && product.subcategory !== 'tortas' &&
                                 <MenuItem key={product._id} product={product} /> 
                             ))
@@ -50,7 +52,7 @@ export default function Menu({products}) {
                         <div className={Style.title}>{category === 'mexican food' && 'Tortas'}</div>
                     <div className={Style.items}>
                         {
-                            products.map((product)=>(
+                            products.map((product:Product)=>(
                                 category === product.category && product.subcategory !== 'tacos' && product.subcategory !== 'gorditas' && product.category !== 'pupusas' &&
                                 <MenuItem key={product._id} product={product} /> 
                             ))

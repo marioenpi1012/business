@@ -1,13 +1,22 @@
 import dbConnect from "../../../util/mongo"
 import Product from "../../../models/Product"
-
-export default async function handler(req, res){
+import type { NextApiRequest, NextApiResponse} from "next";
+type response = {
+    category: String,
+    subCategory:String,
+    desc:String,
+    price:Number,
+    title:String,
+    _id:Number,
+}[]
+export default async function handler(req : NextApiRequest, res : NextApiResponse){
     const {method,cookies} = req;
     const token = cookies.token
     await dbConnect()
     if(method === 'GET'){
         try{
             const products = await Product.find()
+            console.log(products)
             res.status(200).json(products)
         }catch(err){
             res.status(500).json(err)

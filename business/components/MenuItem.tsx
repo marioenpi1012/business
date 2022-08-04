@@ -1,10 +1,9 @@
+import { Product } from '../additional'
 import Style from '../styles/Menu.module.scss'
-
-export default function MenuItem({product, subcat}) {
-    const {_id, title, desc, price, subcategory}  = product
+export default function MenuItem({product}) {
+    const {_id, title, desc, price} :Product  = product
     return (
         <>  
-            {subcat && subcat}
             <div key={_id} className={Style.item}>
                 <div className={Style.titleAndPrice}>
                     <div className={Style.name}>{title}</div>

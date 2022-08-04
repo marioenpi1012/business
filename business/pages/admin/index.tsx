@@ -1,10 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
+import { Product } from "../../additional"
 import Add from '../../components/Add'
 import Style from '../../styles/Admin.module.scss'
-
+import { GetServerSideProps } from "next"
 export default function index({products}) {
-    const [productsList,setProductsList] = useState(products)
+    const [productsList,setProductsList] = useState(products) 
     const [edit,setEdit] = useState(false)
     const [create,setCreate] = useState(false)
     const [editProduct,setEditProduct] = useState(null)
@@ -59,7 +60,7 @@ export default function index({products}) {
                             <th>Action</th>
                         </tr>
                     </tbody>
-                    {groupedObj.map((product)=>(
+                    {groupedObj.map((product:Product)=>(
                     <tbody key={product._id}>
                         <tr>
                             <td className={Style.price}>{(product._id)}</td>
@@ -88,9 +89,8 @@ export default function index({products}) {
     )
 }
 
-export const getServerSideProps = async () =>{
+export const getServerSideProps : GetServerSideProps = async () =>{
     const productRes = await axios.get('https://elpanamericano.vercel.app/api/products')
-
     return{
         props:{
             products:productRes.data
